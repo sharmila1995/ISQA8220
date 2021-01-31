@@ -24,7 +24,7 @@ class Registrant(models.Model):
         self.save()
 
     def __str__(self):
-        return self.first_name, self.last_name
+        return "{} {}".format(self.first_name, self.last_name)
 
 
 class Venue(models.Model):
@@ -70,8 +70,8 @@ class Event(models.Model):
 
 
 class Rsvp(models.Model):
-    registrant = models.ForeignKey(Registrant, on_delete=models.CASCADE, related_name='rsvp')
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='rsvp')
+    registrant = models.ForeignKey(Registrant, on_delete=models.CASCADE, related_name='rsvps')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='rsvps')
     created_date = models.DateTimeField(
         default=timezone.now)
     updated_date = models.DateTimeField(auto_now_add=True)
@@ -88,4 +88,4 @@ class Rsvp(models.Model):
 
     def __str__(self):
         person = self.registrant
-        return person.first_name , person.last_name, self.event.event_name
+        return '{} {}\'s rsvp for {}'.format(person.first_name, person.last_name, self.event.name)
