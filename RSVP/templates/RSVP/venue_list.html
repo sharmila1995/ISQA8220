@@ -1,0 +1,68 @@
+{% extends 'RSVP/base.html' %}
+{% block content %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RSVP Service</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+<style>
+    body {
+    background-color: beige;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Welcome!</div>
+                <div class="panel-body">
+                    RSVP Services!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <h2 style="padding-left: 15Px">Venue Information</h2>
+</div>
+<div>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr class="bg-info">
+            <th>Venue Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip Code</th>
+            <th colspan="3">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for venue in venues %}
+        <tr>
+            <td>{{ venue.venue_name}}</td>
+            <td>{{ venue.venue_email }}</td>
+            <td>{{ venue.phone_number }}</td>
+            <td>{{ venue.venue_address }}</td>
+            <td>{{ venue.venue_city }}</td>
+            <td>{{ venue.venue_state }}</td>
+            <td>{{ venue.venue_zipcode }}</td>
+            <td><a href="{% url 'RSVP:venue_edit' pk=venue.pk %}" class="btn btn-warning">Edit</a>
+            <td><a href="{% url 'RSVP:venue_delete' pk=venue.pk %}"
+                   onclick="return confirm('Are you sure you want to delete?')"
+                   class="btn btn-danger">Delete</a>
+            </td>
+            <td><a href=""
+                   class="btn btn-primary">Summary</a>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+{% endblock %}

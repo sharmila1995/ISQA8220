@@ -3,6 +3,8 @@ from django.db import models
 from django.utils import timezone
 
 # Create your models here.
+
+
 class Registrant(models.Model):
     Registrant_id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=50)
@@ -48,6 +50,7 @@ class Venue(models.Model):
 
     def __str__(self):
         return self.venue_name
+
 
 class Event(models.Model):
     event_id = models.AutoField(primary_key=True)

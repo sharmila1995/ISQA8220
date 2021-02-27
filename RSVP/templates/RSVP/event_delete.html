@@ -1,0 +1,8 @@
+{% extends 'RSVP/base.html' %}
+<h1>Delete {{ event.event_name }}?</h1>
+<form method="post">
+    {% csrf_token %}
+    <input class="btn btn-danger" type="submit" value="Delete">
+    <a href="{% url 'RSVP:home' pk=event.event_id %} ">Cancel</a>
+</form>
+{% endblock %}
