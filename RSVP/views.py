@@ -6,7 +6,6 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 
-
 now = timezone.now()
 
 
@@ -27,9 +26,9 @@ def register(request):
             print(form.error_messages[msg])
 
     form = UserCreationForm
-    return render(request = request,
-                  template_name = "registration/register.html",
-                  context={"form":form})
+    return render(request=request,
+                  template_name="registration/register.html",
+                  context={"form": form})
 
 
 @login_required
@@ -114,6 +113,7 @@ def event_delete(request, pk):
     return redirect('RSVP:event_list')
 
 
+@login_required
 def event_new(request):
     if request.method == "POST":
         form = EventForm(request.POST)
