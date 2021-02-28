@@ -92,4 +92,4 @@ class Rsvp(models.Model):
 
     def __str__(self):
         person = self.registrant
-        return '{} {}\'s rsvp for {}'.format(person.first_name, person.last_name, self.event.name)
+        return '{} {}\'s rsvp for {}'.format(person.first_name, person.last_name, self.event.event_name)
