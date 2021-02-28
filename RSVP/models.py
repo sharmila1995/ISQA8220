@@ -9,7 +9,6 @@ class Registrant(models.Model):
     Registrant_id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    birth_date = models.DateField(null=True, blank=True)
     email = models.EmailField(max_length=50)
     phone_number = models.CharField(max_length=50)
     address = models.CharField(max_length=200)
