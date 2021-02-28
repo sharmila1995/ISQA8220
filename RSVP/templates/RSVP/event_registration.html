@@ -1,0 +1,12 @@
+{% extends 'RSVP/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="form-body">
+    <h1>RSVP Services</h1>
+    <h2>Register for {{event.event_name}}</h2>
+    <form method="POST" class="registrant-form">{% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="save btn btn-default">Submit</button>
+    </form>
+</div>
+{% endblock %}

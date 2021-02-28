@@ -1,0 +1,9 @@
+{% extends 'RSVp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>Add a New Venue</h1>
+<form method="POST" class="venue-form">{% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="save btn btn-default">Save</button>
+</form>
+{% endblock %}

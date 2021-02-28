@@ -34,21 +34,23 @@
             <th>Event Name</th>
             <th>Date </th>
             <th>Description</th>
+            <th>Venue</th>
             <th colspan="3">Actions</th>
         </tr>
         </thead>
         <tbody>
         {% for event in events %}
         <tr>
+            <td>{{ event.event_name }}</td>
             <td>{{ event.event_date }}</td>
             <td>{{ event.event_description }}</td>
+            <td>{{ event.event_venue }}</td>
             <td><a href="{% url 'RSVP:event_edit' pk=event.pk %}" class="btn btn-warning">Edit</a>
             <td><a href="{% url 'RSVP:event_delete' pk=event.pk %}"
                    onclick="return confirm('Are you sure you want to delete?')"
                    class="btn btn-danger">Delete</a>
+            <td><a href="{% url 'RSVP:event_registration' event_id=event.event_id%}" class="btn btn-primary">Register</a>
             </td>
-            <td><a href=""
-                   class="btn btn-primary">Summary</a>
         </tr>
         {% endfor %}
         </tbody>
