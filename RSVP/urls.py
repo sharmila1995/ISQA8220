@@ -16,5 +16,5 @@ urlpatterns = [path('', views.home, name='home'), re_path(r'^home/$', views.home
                path('venue/create/', views.venue_new, name='venue_new'),
                path('venue/<int:pk>/edit/', views.venue_edit, name='venue_edit'),
                path('venue/<int:pk>/delete/', views.venue_delete, name='venue_delete'),
-               path("registration/register/", views.register, name="register"),
+               path('registration/register/', views.register, name='register'),
                ]
